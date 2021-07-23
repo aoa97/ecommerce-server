@@ -4,7 +4,7 @@ import products from './assets/data/productData.js'
 const app = express()
 
 // Get Products 
-app.get('/', (req, res) => {
+app.get('/products', (req, res) => {
     res.send(products)
 })
 
