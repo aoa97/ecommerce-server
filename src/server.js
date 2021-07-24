@@ -1,13 +1,16 @@
 import express from 'express'
-import products from './assets/data/productData.js'
+import dotenv from 'dotenv'
 
+import connectDB from './db.js'
+import productRoutes from './routes/product.routes.js'
+
+
+dotenv.config()
+connectDB()
 const app = express()
 
-// Get Products 
-app.get('/products', (req, res) => {
-    res.send(products)
-})
-
+app.use(express.json())
+app.use(productRoutes)
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => {
