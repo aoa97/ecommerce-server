@@ -4,8 +4,9 @@ import Product from '../models/product.models.js'
 const router = new express.Router()
 
 // Get Products 
-router.get('/products', (req, res) => {
-    res.send("Hello")
+router.get('/products', async (req, res) => {
+    const products = await Product.find({})
+    res.send(products)
 })
 
 // Create Product
